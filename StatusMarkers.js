@@ -57,9 +57,9 @@ var StatusMarkers = StatusMarkers || (function() {
 			var bar1Filled = bar1FilledAmount(obj);
 			if (bar1Filled === 0) {
 				setHpMarker(obj, 'dead');
-			} else if (bar1Filled <= (1 / 4)) {
+			} else if (bar1Filled < (1 / 4)) {
 				setHpMarker(obj, 'red');
-			} else if (bar1Filled <= (1 / 2)) {
+			} else if (bar1Filled < (1 / 2)) {
 				setHpMarker(obj, 'brown');
 			} else if (bar1Filled < 1) {
 				setHpMarker(obj, 'yellow');
