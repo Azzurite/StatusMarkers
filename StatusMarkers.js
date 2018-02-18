@@ -38,8 +38,8 @@ var StatusMarkers = StatusMarkers || (function() {
 	function setHpMarker(graphic, marker) {
 		clearHpMarker(graphic);
 		graphic.set('status_' + marker, true);
-		if (marker === 'dead' && state.PopcornInitiative.handleDeadToken) {
-			state.PopcornInitiative.handleDeadToken(graphic);
+		if (marker === 'dead' && PopcornInitiative && PopcornInitiative.handleDeadToken) {
+			PopcornInitiative.handleDeadToken(graphic);
 		}
 	}
 
