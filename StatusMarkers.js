@@ -1,4 +1,5 @@
-var StatusMarkers = StatusMarkers || (function() {
+var ElectiveActionOrder = ElectiveActionOrder || undefined;
+var StatusMarkers = StatusMarkers || (function(ElectiveActionOrder) {
 
 	function getPlayerName(playerId) {
 		return playerId ? '"' + getObj("player", playerId).get("displayname") + '"' : "gm"
@@ -38,8 +39,8 @@ var StatusMarkers = StatusMarkers || (function() {
 	function setHpMarker(graphic, marker) {
 		clearHpMarker(graphic);
 		graphic.set('status_' + marker, true);
-		if (marker === 'dead' && PopcornInitiative && PopcornInitiative.handleDeadToken) {
-			PopcornInitiative.handleDeadToken(graphic);
+		if (marker === 'dead' && ElectiveActionOrder && ElectiveActionOrder.handleDeadToken) {
+			ElectiveActionOrder.handleDeadToken(graphic);
 		}
 	}
 
@@ -74,7 +75,7 @@ var StatusMarkers = StatusMarkers || (function() {
 	return {
 		load: load
 	};
-})();
+})(ElectiveActionOrder);
 
 on('ready', function() {
 	StatusMarkers.load();
